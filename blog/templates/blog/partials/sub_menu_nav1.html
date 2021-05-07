@@ -1,0 +1,10 @@
+
+  {% for cat in cat.children.all  %}
+  <a class="nav-link " id="navbarDropdown" role="button" data-toggle="dropdown"
+  aria-haspopup="true" aria-expanded="false" href="{% url 'blog:category' cat.slug %}">
+  {{cat.title}}
+</a>
+  {%if cat.children.all %}
+  {% include 'blog/partials/sub_menu_nav.html' %}
+  {%endif%}
+  {% endfor %}
