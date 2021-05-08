@@ -56,6 +56,8 @@ body{
     border-radius: .25rem;
 }
 
+
+/* start css navbar */
 nav {
     display: block !important;
     text-align: center;
@@ -103,8 +105,6 @@ nav {
   .nav > li:last-child >a{border-radius: 0 4px 0 0; }
   .nav li li a { margin-top:1px}
 
-
-
     .nav li a:first-child:nth-last-child(2):before {
      content:"";
      position: absolute;
@@ -114,10 +114,6 @@ nav {
      top: 50% ;
      right:5px;
    }
-
-
-
-
 
    /* submenu positioning*/
 .nav ul {
@@ -158,3 +154,4 @@ nav {
   border-right-color: #7F8C8D;
   right: 10px;
 }
+/* end css navbar */

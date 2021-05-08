@@ -1,0 +1,20 @@
+{% extends 'blog/base_2.html'%}
+
+{% block header%}
+<h3 class="alert alert-primary text-center font-persian">{{category.title}}</h3>
+{%endblock%}
+{%block previous_page_url %}
+{% url 'blog:category' category.slug articles.previous_page_number %}
+{%endblock%}
+{%block next_page_url %}
+{% url 'blog:category' category.slug articles.next_page_number%}
+{%endblock%}
+{%block previous_page_url2 %}
+{% url 'blog:category' category.slug articles.previous_page_number %}
+{%endblock%}
+{%block next_page_url2 %}
+{% url 'blog:category' category.slug articles.next_page_number%}
+{%endblock%}
+{%block url_index%}
+<a href="{% url 'blog:category' category.slug i %}">
+    {%endblock%}

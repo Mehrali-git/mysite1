@@ -1,29 +1,29 @@
 <div class="collapse navbar-collapse" id="navbarResponsive">
-    <nav>
-        <ul class="nav font-persian">
-            <li>
-                <a href="{% url 'blog:home' %}">خانه</a>
-            </li>
-            {% for cat in category %}
-            {% if cat.parent == None %}
-            <li>
-                <a href="{% url 'blog:category' cat.slug %}">{{cat.title}}</a>
-                {%if cat.children.all %}
-                <ul>
-                    {% for cat in cat.children.all %}
-                    <li class="">
-                        <a class="" href="{% url 'blog:category' cat.slug %}">{{cat.title}}</a>
-                        {%if cat.children.all %}
-                        {% include 'blog/partials/sub_menu_nav.html' %}
-                        {%endif%}
-                    </li>
-                    {% endfor %}
-                </ul>
-            </li>
+  <nav>
+    <ul class="nav font-persian">
+      <li>
+        <a href="{% url 'blog:home' %}">خانه</a>
+      </li>
+      {% for cat in category %}
+      {% if cat.parent == None %}
+      <li>
+        <a href="{% url 'blog:category' cat.slug %}">{{cat.title}}</a>
+        {%if cat.children.active %}
+        <ul>
+          {% for cat in cat.children.active  %}
+          <li class="">
+            <a class="" href="{% url 'blog:category' cat.slug %}">{{cat.title}}</a>
+            {%if cat.children.active %}
+            {% include 'blog/partials/sub_menu_nav.html' %}
             {%endif%}
-            {% endif %}
-            {% endfor %}
+          </li>
+          {% endfor %}
         </ul>
-        <!-- </div> -->
-    </nav>
+      </li>
+      {%endif%}
+      {% endif %}
+      {% endfor %}
+    </ul>
+    <!-- </div> -->
+  </nav>
 </div>
