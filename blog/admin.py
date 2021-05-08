@@ -3,7 +3,7 @@ from . import models
 
 
 def make_published(modeladmin, request, queryset):
-    queryset.update(status='p')
+    queryset.update(author='p')
 
 
 make_published.short_description = 'تغییر وضعیت موارد ازپیش نویس به انتشار'
@@ -23,7 +23,7 @@ class chizAdmin(admin.ModelAdmin):
 
 @admin.register(models.Articles)
 class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'status', 'jpublish', 'category_to_str')
+    list_display = ('title', 'slug', 'author', 'status', 'jpublish', 'category_to_str')
     list_filter = ('publish', 'status')
     search_fields = ('title', 'description')
     prepopulated_fields = {'slug': ('title',)}
