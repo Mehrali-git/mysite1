@@ -15,8 +15,9 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-LOGIN_REDIRECT_URL="account:home"
-LOGIN_URL="account:login"
+LOGIN_REDIRECT_URL = "account:home"
+LOGOUT_REDIRECT_URL = "account:login"
+LOGIN_URL = "account:login"
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
@@ -27,7 +28,6 @@ SECRET_KEY = 'csh^ywry)hn^g)9*fw0fm0m_=2esa7vbl^78)^zg)+0(ig&77j'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -60,7 +60,7 @@ ROOT_URLCONF = 'config.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates'),],
+        'DIRS': [os.path.join(BASE_DIR, 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -75,7 +75,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'config.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
@@ -85,7 +84,6 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.0/ref/settings/#auth-password-validators
@@ -105,7 +103,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/
 
@@ -119,14 +116,13 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
 # STATIC_ROOT=os.path.join(BASE_DIR, 'static')
-STATICFILES_DIRS=[os.path.join(BASE_DIR, 'static'),]
-MEDIA_URL='/media/'
-MEDIA_ROOT=os.path.join(BASE_DIR, 'media')
-CRISPY_TEMPLATE_PACK='bootstrap4'
-AUTH_USER_MODEL='account.User'
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static'), ]
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+AUTH_USER_MODEL = 'account.User'

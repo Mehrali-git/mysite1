@@ -1,0 +1,19 @@
+{% extends 'registration/base.html' %}
+
+{% block title%}حذف مقاله{%endblock%}
+{% block main %}
+<div class="col-lg-8 mb-0 float-left">
+    <!-- general form elements -->
+    <div class="box box-danger">
+        <div class="box-header with-border">
+            <h3 class="box-title mb-0 mr-2 float-left">مقاله</h3>
+        </div><!-- /.box-header -->
+        <div class="card-body">
+            <form method="post">{% csrf_token %}
+                <p class="mr-2">آیا شما می خواهید مقاله«{{object}}» از «{{object.author.get_full_name}}» را حذف کنید؟</p>
+                <input class="btn btn-danger" type="submit" value="تایید حذف">
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

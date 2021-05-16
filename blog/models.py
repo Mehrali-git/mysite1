@@ -41,6 +41,7 @@ class Articles(models.Model):
     updated = models.DateTimeField(auto_now=True, verbose_name=' تاریخ ویرایش')
     status = models.CharField(max_length=1, choices=STATUS_CHOICES, verbose_name='وضعیت نمایش')
 
+    # is_special = models.BooleanField(default=False, verbose_name='وضعیت نویسندگی')
     def __str__(self):
         return self.title
 
