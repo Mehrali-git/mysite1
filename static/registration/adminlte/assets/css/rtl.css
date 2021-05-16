@@ -1,0 +1,36 @@
+@font-face {
+  font-family: Sahel;
+  src: url('Sahel-FD-WOL.eot');
+  src: url('Sahel-FD-WOL.eot?#iefix') format('embedded-opentype'),
+       url('Sahel-FD-WOL.woff2') format('woff2'),
+       url('Sahel-FD-WOL.woff') format('woff'),
+       url('Sahel-FD-WOL.ttf') format('truetype');
+  font-weight: bold;
+}
+.sidebar-menu li a .fa-angle-left,
+.sidebar-menu li .label, .sidebar-menu li .badge {
+	margin-top: -15px !important;
+}
+
+
+.font-persian{
+  font-family: "Sahel" !important;
+}
+.font-size_f_big{
+    font-size:28px !important;
+  }
+.font-size_f_midle_one{
+      font-size:16px !important;
+  }
+.font-size_f_midle_two{
+    font-size:18px !important;
+ }
+ .font-size_f_midle_three{
+       font-size:20px !important;
+   }
+.font-size-small{
+    font-size: 12px !important;
+  }
+.textarea text_align_rigt{
+text-align: right !important;
+}

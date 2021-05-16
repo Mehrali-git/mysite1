@@ -1,0 +1,24 @@
+{% extends 'blog/base_2.html'%}
+
+{% block header%}
+<h3 class="alert alert-primary text-center font-persian">نویسنده :{{author.get_full_name}}</h3>
+{%endblock%}
+{%block url_index%}
+<a href="{% url 'blog:author' author.username i %}">
+  <button type="button" class="btn btn-secondary font-persian">{{ i }}</button>
+</a>
+{%endblock%}
+
+{%block previous_page_url %}
+{% url 'blog:author' author.username page_obj.previous_page_number %}
+{%endblock%}
+{%block previous_page_url2 %}
+{% url 'blog:author' author.username page_obj.previous_page_number %}
+{%endblock%}
+
+{%block next_page_url %}
+{% url 'blog:author' author.username page_obj.next_page_number%}
+{%endblock%}
+{%block next_page_url2 %}
+{% url 'blog:author' author.username page_obj.next_page_number%}
+{%endblock%}

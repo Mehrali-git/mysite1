@@ -1,10 +1,54 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-home
-</body>
-</html>
+{% extends 'registration/base.html' %}
+
+<p>{{user.get_full_name}}</p>
+{% block title%}لیست مقالات{%endblock%}
+{% block main %}
+<div class="row">
+    <div class="col-xs-12">
+        <div class="box">
+            <!-- /.box-header -->
+            <div class="box-body table-responsive no-padding">
+                <table class="table table-hover">
+                    <tbody>
+                    <tr>
+                        <th>موضوع</th>
+                        <th>دسته بندی</th>
+                        <th>نویسنده</th>
+                        <th>خلاصه مقاله</th>
+                        <th>تصویر</th>
+                        <th>تاریخ انتشار</th>
+                        <th>وضعیت</th>
+                    </tr>
+                    {% for article in object_list%}
+                    <tr>
+                        <td>
+                            {% if user.is_superuser or article.status == 'd' %}
+                            <a href="{% url 'account:article-update' article.pk %}">{{article.title}}</a>
+                            {% else %}
+                            {{article.title}}
+                            {% endif %}
+                        </td>
+                        <td>{{article.category_to_str}}</td>
+                        <td>{{article.author.get_full_name}}</td>
+                        <td>{{article.description|striptags|truncatewords:20}}</td>
+                        <td><img src="{{article.thamnail.url}}" width="100" height="85" style="border-radius:5px"
+                                 alt=""></td>
+                        <td>{{article.jpublish}}</td>
+                        <td>
+                            {% if article.status == 'p' %}
+                            <small class="label pull-right bg-green">منتشرشده</small>
+                            <a class="label pull-right bg-primary" style="margin:2px;" target="_blank"
+                               href="{%url 'blog:detail' article.slug%}">مشاهده مقاله درسایت</a>
+                            {% else %}
+                            <small class="label pull-right label-danger">پیش نویس</small>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {%endfor %}
+                    </tbody>
+                </table>
+            </div><!-- /.box-body -->
+        </div><!-- /.box -->
+    </div>
+</div>
+{% endblock %}

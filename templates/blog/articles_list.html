@@ -1,0 +1,21 @@
+{% extends 'blog/base_2.html'%}
+
+{% block header%}{%endblock%}
+{%block previous_page_url %}
+{% url 'blog:home' page_obj.previous_page_number %}
+{%endblock%}
+{%block url_index%}
+<a href="{% url 'blog:home' i %}">
+  <button type="button" class="btn btn-secondary font-persian">{{ i }}</button>
+</a>
+{%endblock%}
+{%block previous_page_url2 %}
+{% url 'blog:home' page_obj.previous_page_number %}
+{%endblock%}
+
+{%block next_page_url %}
+{% url 'blog:home' page_obj.next_page_number%}
+{%endblock%}
+{%block next_page_url2 %}
+{% url 'blog:home' page_obj.next_page_number%}
+{%endblock%}
