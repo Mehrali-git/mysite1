@@ -37,14 +37,9 @@ def make_Category_disable(modeladmin, request, queryset):
 make_Category_disable.short_description = 'عدم نمایش دسته های انتخاب شده'
 
 
-@admin.register(models.chiz)
-class chizAdmin(admin.ModelAdmin):
-    pass
-
-
 @admin.register(models.Articles)
 class ArticlesAdmin(admin.ModelAdmin):
-    list_display = ('title', 'slug', 'author', 'thamnail_tag', 'status', 'jpublish', 'category_to_str')
+    list_display = ('title', 'slug', 'author', 'thamnail_tag', 'is_special', 'status', 'jpublish', 'category_to_str')
     list_filter = ('publish', 'status')
     search_fields = ('title', 'description')
     prepopulated_fields = {'slug': ('title',)}

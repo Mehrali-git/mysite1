@@ -100,7 +100,7 @@ nav {
   .nav > li:first-child>a{border-radius: 4px 0 0 0;}
   .nav > li:last-child  {
     border-radius: 0 0 4px 0;
-    margin-right: 0;
+    margin-right: 1px;
   }
   .nav > li:last-child >a{border-radius: 0 4px 0 0; }
   .nav li li a { margin-top:1px}

@@ -1,0 +1,36 @@
+{% extends 'registration/base.html' %}
+{% load crispy_forms_tags %}
+{% block title%}صفحه کاربری{%endblock%}
+{% block main %}
+<div class="col-lg-12 mb-0 float-left">
+    <!-- general form elements -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title mb-0 float-left">کاربر</h3>
+        </div><!-- /.box-header -->
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">{% csrf_token %}
+                <div class="row">
+                    <div class="col-lg-6">{{form.username|as_crispy_field}}</div>
+                    <div class="col-lg-6">{{form.first_name|as_crispy_field}}</div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6">{{form.last_name|as_crispy_field}}</div>
+                    <div class="col-lg-6 m-3 ">{{form.email|as_crispy_field}}</div>
+                    <div class="col-lg-6">{{form.special_user|as_crispy_field}}</div>
+                    <div class="col-lg-6">{{form.is_author|as_crispy_field}}</div>
+                </div>
+                <div class="col-lg-6 m">
+                    <button class="btn btn-success" name="button">ویرایش</button>
+                    <span class="m">
+                برای تغییرگزرواژه
+                <a class="" href="{% url 'account:password_change' %}" style="color:red">اینجا
+                </a>
+                کلیک کنید
+                </span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

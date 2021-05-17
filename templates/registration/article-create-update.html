@@ -25,10 +25,16 @@
                     <div class="col-lg-6">{{form.author|as_crispy_field}}</div>
                     <div class="col-lg-6 ">{{form.status|as_crispy_field}}</div>
                     {% endif %}
+                    <div class="col-lg-6 m ">{{form.is_special|as_crispy_field}}</div>
+                    <div class="col-lg-12 m">
+                        <button class="btn btn-success" name="button">ارسال مقاله</button>
+                        {%if user.is_superuser and request.resolver_match.kwargs.pk%}
+                        <a class="btn btn-danger"
+                           href="{% url 'account:article-delete' request.resolver_match.kwargs.pk %}">حذف</a>
+                        {%endif%}
+                    </div>
                 </div>
-                <p class=" mb-2">
-                    <button class="btn btn-success" name="button">ارسال مقاله</button>
-                </p>
+
             </form>
         </div>
     </div>

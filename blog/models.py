@@ -16,14 +16,6 @@ class CategoryManager(models.Manager):
         return self.filter(status=True)
 
 
-class chiz(models.Model):
-    pass
-
-    class Meta:
-        verbose_name = 'نمونه'
-        verbose_name_plural = 'نمونه ها'
-
-
 class Articles(models.Model):
     STATUS_CHOICES = (
         ('d', 'پیش نویس'),
@@ -36,6 +28,7 @@ class Articles(models.Model):
     slug = models.SlugField(max_length=100, unique=True, verbose_name='آدرس مقاله ')
     description = models.TextField(verbose_name=' شرح مقاله')
     thamnail = models.ImageField(upload_to='images', verbose_name='عکس ')
+    is_special = models.BooleanField(default=False, verbose_name='مقاله ویژه')
     publish = models.DateTimeField(default=timezone.now, verbose_name='تاریخ انتشار ')
     created = models.DateTimeField(auto_now_add=True, verbose_name='تاریخ ایجاد ')
     updated = models.DateTimeField(auto_now=True, verbose_name=' تاریخ ویرایش')
