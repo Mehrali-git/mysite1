@@ -17,6 +17,7 @@
                         <th>خلاصه مقاله</th>
                         <th>تصویر</th>
                         <th>تاریخ انتشار</th>
+                        <th>مقاله ویژه</th>
                         <th>وضعیت</th>
                     </tr>
                     {% for article in object_list%}
@@ -35,6 +36,13 @@
                                  alt=""></td>
                         <td>{{article.jpublish}}</td>
                         <td>
+                            {% if article.is_special %}
+                            <i class="fa circule fa-check-circle" style="color:green"></i>
+                            {% else %}
+                            <i class="fa circule fa-minus-circle" style="color:red"></i>
+                            {% endif %}
+                        </td>
+                        <td>
                             {% if article.status == 'p' %}
                             <small class="label pull-right bg-green" style="margin:1px">منتشرشده</small>
                             <a class="label pull-right bg-primary" style="margin:2px;" target="_blank"
@@ -42,8 +50,9 @@
                             {% else %}
                             <small class="label pull-right label-info" style="margin:1px">پیش نویس</small>
                             {% endif %}
-                             {% if user.is_superuser %}
-                            <a href="{% url 'account:article-delete' article.pk %}"><small class="label pull-right label-danger" style="margin:1px">حذف مقاله</small></a>
+                            {% if user.is_superuser %}
+                            <a href="{% url 'account:article-delete' article.pk %}"><small
+                                    class="label pull-right label-danger" style="margin:1px">حذف مقاله</small></a>
                             {% endif %}
                         </td>
                     </tr>
